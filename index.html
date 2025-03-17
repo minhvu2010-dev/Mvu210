@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần quà này dành cho bạn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-image: url('https://i.imgur.com/zQ9z1Mr.jpeg');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed; 
+            height: 100vh; 
+        }
+        .large-text {
+            font-size: 100px; 
+            font-weight: bold;
+            color: #FF6347; 
+            display: none; 
+        }
+        .login-container {
+            margin-top: 50px;
+            padding: 20px;
+            border: 2px solid #FF6347;
+            border-radius: 10px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.7); 
+        }
+        .login-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #FF4500;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Mã của bạn (Admin Cấp)</h2>
+        <form id="loginForm">
+            <input type="password" id="code" name="code" placeholder="Mã đăng nhập" required>
+            <button type="submit">Đăng nhập</button>
+        </form>
+        <div class="error" id="errorMessage"></div>
+    </div>
+
+    <div class="large-text" id="welcomeText">
+        Xem Rồi Là Ny Anh Nha 🥰🥰
+    </div>
+
+    <script>
+        const validCode = "MinhVu2010";
+        
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const code = document.getElementById("code").value;
+
+            if (code === validCode) {
+                document.getElementById("welcomeText").style.display = "block"; 
+                document.querySelector(".login-container").style.display = "none"; 
+            } else {
+                document.getElementById("errorMessage").textContent = "Mã đăng nhập không đúng!";
+            }
+        });
+    </script>
+
+</body>
+</html>
